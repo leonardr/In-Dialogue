@@ -1,7 +1,9 @@
 In Dialogue
+===========
+
 a 2013 NaNoGenMo project
+
 by Leonard Richardson
-==============
 
 "In Dialogue" extracts the dialogue from Project Gutenberg ebooks and
 provides a tool for replacing all the dialogue from one text with
@@ -22,7 +24,7 @@ the list of available texts:
 $ wget http://www.gutenberg.org/ebooks/730.txt.utf-8 -O raw/730.txt.utf-8
 $ ./0-extract-dialogue.py
 
-And this command combines the text of "A Christmas Carol" with
-dialogue from "Oliver Twist":
+Then, this command prints the text of "A Christmas Carol", with all
+the dialogue replaced with dialogue from "Oliver Twist":
 
 $ ./1-generate-book.py "A Christmas Twist" 46 730
