@@ -36,15 +36,16 @@ class GutenbergDialogueExtractor(object):
             print " Double quotes. (%d single, %d double)" % (single_count, double_count)
             quote_char = '"' 
 
-        dialogue_chunk = re.compile(r"(\W|^)(%s([^%s]|%s\w)*%s)(\W|$)" % (
-            quote_char, quote_char, quote_char, quote_char))
+        dialogue_chunk = re.compile(
+            r"(\W|^)(%(q)s([^%(q)s]|%(q)s\w)*(%(q)s|$))(\W|$)" % (
+                dict(q=quote_char)))
 
         paragraphs = text.split('\r\n\r\n')
 
         for para in paragraphs:
             chunks = []
             def replace(match):
-                before, dialogue, ignore, after = match.groups()
+                before, dialogue, ignore, ignore, after = match.groups()
                 chunks.append(dialogue)
                 return before + "%(dialogue)s" + after
                 

@@ -112,4 +112,4 @@ else:
         print("Couldn't find dialogue for '%s'" % text)
         usage()
 
-    print Mashup(text + ".txt", dialogue + ".txt", title).as_html()
+    print(Mashup(text + ".txt", dialogue + ".txt", title).as_html().encode("utf8"))
